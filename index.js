@@ -1,7 +1,13 @@
 const express = require("express")
 const app = express()
 require("dotenv").config();
+const addUserRoute = require("./routes/addUserRoute")
+
+//Middleware
 app.use(express.urlencoded({ extended: true }));
+
+//Routes
+app.use("/user", addUserRoute);
 
 app.get("/", (req, res)=>{
     res.send("Website running")
